@@ -4,8 +4,7 @@
 !/www
 !/docs
 !/config.xml
-!/README.md
-!/LICENSE.md
+!/*.md
 !/intelxdk.config.additions.xml
 !/*.xdk
 !/.gitignore
