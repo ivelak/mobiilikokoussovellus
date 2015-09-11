@@ -1,7 +1,7 @@
 Blank Intel XDK and Apache Cordova Project
 ==========================================
 
-See [LICENSE.md](<LICENSE.md>) for license terms and conditions.
+See [XDK LICENSE.md](<XDK LICENSE.md>) for license terms and conditions.
 
 Project File Information
 ------------------------

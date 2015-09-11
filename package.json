@@ -1,0 +1,14 @@
+{
+	"name": "mobiilikokoussovellus",
+	"title": "Mobiilikokoussovellus",
+	"description": "Mobiilikokoussovellus Suomen partiolle",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/partio-scout/mobiilikokoussovellus.git"
+	},
+	"devDependencies": {
+		"jquery":">= 2.1.4 ",
+		"appframework": "https://github.com/01org/appframework",
+		"fastclick":   ">= 1.0.6 "
+	}
+}

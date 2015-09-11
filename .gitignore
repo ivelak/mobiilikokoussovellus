@@ -9,4 +9,4 @@
 !/*.xdk
 !/.gitignore
 !/*.png
-!/vendor
+!/package.json

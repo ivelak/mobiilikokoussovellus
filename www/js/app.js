@@ -1,5 +1,5 @@
 /*
- * Please see the included README.md file for license terms and conditions.
+ * Please see the included XDK README.md file for license terms and conditions.
  */
 
 
