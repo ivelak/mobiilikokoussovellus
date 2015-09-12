@@ -17,24 +17,38 @@
 </head>
 
 <body>
-    <div class="view" id="mainview">
+    <div class="view splitview" id="mainview">
         <header>
             <h1>Sivun data-title tulee tähän</h1>
+            <a class="menuButton" data-left-menu="leftMenu" data-transition="cover"></a>
         </header>
 
         <div class="pages">
-            <div class="panel" data-title="Koti ruutu" id="main" data-selected="true">
-                Eka välilehti
+
+            <div class="panel" data-title="Etusivu" id="main" data-selected="true">
+
+                insert mockfeed here
             </div>
 
-            <div class="panel" data-title="Se toinen ruutu" id="toinen">
-                Toinen välilehti
+            <div class="panel" data-title="Merkit" id="toinen">
+                insert badge grid here
             </div>
+
         </div>
-        <footer>
-            <a href="#main" class="icon home" id="tab1">Koti</a>
-            <a href="#toinen" class="icon heart" id="tab2" data-transition="none">Toinen</a>
-        </footer>
+
+        <nav id="leftMenu">
+            <div class="view active" id="navView1">
+                <header>
+                    <h1>Menu</h1>
+                </header>
+                <ul class="list">
+                    <li><a href="#main" class="icon home" id="tab1">Etusivu</a></li>
+                    <li><a href="#toinen" class="icon heart" id="tab2" data-transition="none">merkit</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
     </div>
 </body>
 
