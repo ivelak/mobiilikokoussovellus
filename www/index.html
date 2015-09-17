@@ -21,9 +21,10 @@
 <body>
     <div class="view" id="mainview">
         testi
+        <div id="scripterooni"> <div>
         <script>
-            $.get("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html",function(res){
-                window.alert(res);
+            $.getJSON("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html",function(res){
+                document.getElementById("scripterooni").innerHTML = res.events[0].testi;
             });
         </script>
     </div>
