@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/partio-scout/mobiilikokoussovellus.svg)](https://travis-ci.org/partio-scout/mobiilikokoussovellus)
 mobiilikokoussovellus
 ===
 Mobiilisovellus Suomen partiolle
