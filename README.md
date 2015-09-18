@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/partio-scout/mobiilikokoussovellus.svg)](https://travis-ci.org/partio-scout/mobiilikokoussovellus)
 mobiilikokoussovellus
 ===
 Mobiilisovellus Suomen partiolle
@@ -10,3 +11,4 @@ Projektiin liittyvä dokumentaatio löytyy pääosin [google drivesta](https://d
 Projektin backlog löytyy wafflesta:
 
 [![Sprint](https://badge.waffle.io/partio-scout/mobiilikokoussovellus.svg?label=sprint&title=Backlog)](http://waffle.io/partio-scout/mobiilikokoussovellus)
+[![Build Status](https://travis-ci.org/partio-scout/mobiilikokoussovellus.svg)](https://travis-ci.org/partio-scout/mobiilikokoussovellus)
