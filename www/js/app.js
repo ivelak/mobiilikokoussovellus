@@ -34,20 +34,39 @@ function onAppReady() {
         navigator.splashscreen.hide() ;
     }
 }
-document.addEventListener("app.Ready", onAppReady, false) ;
+document.addEventListener("app.Ready", onAppReady, false);
+
+var test = "hei toimiiks tää";
 
 var app = angular.module('af', []);
 
-app.controller('EventController', function ($scope, $http) {
+app.controller('ctrl', function($scope) {
+    $scope.firstName= "John";
+    $scope.lastName= "Doe";
 
-    $.getJSON("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html" , function(res) {
-        $scope.events = res.events.value;
+    $.getJSON("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html",function(res){
+                 $scope.events = res.events;
     });
 
-    $scope.getDetails = function(index){
+    $scope.getDetails = function(index) {
         $scope.event = $scope.events[index];
-    };
+    }
 });
+
+// function EventController($scope) {
+//     $scope.events = [];
+//
+//     $.getJSON("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html" , function(res) {
+//         res.events.forEach(function(value) {
+//             $scope.events.push(value);
+//         });
+//     });
+//
+//     $scope.getDetails = function(index){
+//         $scope.event = $scope.events[index];
+//     };
+// }
+
 // document.addEventListener("deviceready", onAppReady, false) ;
 // document.addEventListener("onload", onAppReady, false) ;
 

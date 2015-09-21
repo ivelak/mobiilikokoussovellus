@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="af">
+<html>
 
 <head>
     <title>Mobiilikokoussovellus</title>
@@ -21,24 +21,26 @@
 
 <body>
     <div class="view" id="mainView">
+        <div ng-app="af" ng-controller="ctrl">
         test
+        {{firstName}}
 
         <div id="content" ng-controller="EventController">
 
             <div class="panel" title="All Events" id="events" selected="true">
                 <ul class="list">
-                  <li ng-repeat="event in events track by $index"><a href="#details" ng-click="getDetails($index)">{{ event.name }}</a></li>
+                  <li ng-repeat="x in events track by $index"><a href="#details" ng-click="getDetails($index)">{{x.name}}</a></li>
                 </ul>
             </div>
 
-            <div class="panel" title="Product Details" id="details" >
+            <!-- <div class="panel" title="Product Details" id="details" >
                 <br>
                 <ul class="list inset">
                     <li>Nimi: <span style="float:right">{{ event.name }}
                     <li>Aika: <span style="float:right">{{ event.time }}</span></li>
                     <li>Paikka: <span style="float:right">{{ event.place }}</span></li>
                 </ul>
-            </div>
+            </div> -->
 
         </div>
 
