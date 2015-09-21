@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="af">
 
 <head>
     <title>Mobiilikokoussovellus</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script src="cordova.js"></script>
+    <script src="js/angular.js"></script>
     <script src="js/jquery-2.1.4.js"></script>
     <script src="js/appframework.ui.js"></script>
     <script src="xdk/init-dev.js"></script>
@@ -19,14 +20,28 @@
 </head>
 
 <body>
-    <div class="view" id="mainview">
-        testi
-        <div id="scripterooni"> <div>
-        <script>
-            $.getJSON("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html",function(res){
-                document.getElementById("scripterooni").innerHTML = res.events[0].testi;
-            });
-        </script>
+    <div class="view" id="mainView">
+        test
+
+        <div id="content" ng-controller="EventController">
+
+            <div class="panel" title="All Events" id="events" selected="true">
+                <ul class="list">
+                  <li ng-repeat="event in events track by $index"><a href="#details" ng-click="getDetails($index)">{{ event.name }}</a></li>
+                </ul>
+            </div>
+
+            <div class="panel" title="Product Details" id="details" >
+                <br>
+                <ul class="list inset">
+                    <li>Nimi: <span style="float:right">{{ event.name }}
+                    <li>Aika: <span style="float:right">{{ event.time }}</span></li>
+                    <li>Paikka: <span style="float:right">{{ event.place }}</span></li>
+                </ul>
+            </div>
+
+        </div>
+
     </div>
     <script>
         $(function() {

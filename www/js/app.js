@@ -36,6 +36,18 @@ function onAppReady() {
 }
 document.addEventListener("app.Ready", onAppReady, false) ;
 
+var app = angular.module('af', []);
+
+app.controller('EventController', function ($scope, $http) {
+
+    $.getJSON("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html" , function(res) {
+        $scope.events = res.events.value;
+    });
+
+    $scope.getDetails = function(index){
+        $scope.event = $scope.events[index];
+    };
+});
 // document.addEventListener("deviceready", onAppReady, false) ;
 // document.addEventListener("onload", onAppReady, false) ;
 

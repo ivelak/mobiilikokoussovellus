@@ -12,6 +12,7 @@
     "fastclick": ">= 1.0.6 "
   },
   "dependencies": {
+    "angular": "^1.4.6",
     "jasmine": "^2.3.2"
   }
 }
