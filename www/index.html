@@ -21,15 +21,11 @@
 
 <body>
     <div class="view" id="mainView">
-        <div ng-app="af" ng-controller="ctrl">
-        test
-        {{firstName}}
-
-        <div id="content" ng-controller="EventController">
-
+        <div ng-app="af" ng-controller="EventController as ev">
+        <div id="debug"></div>
             <div class="panel" title="All Events" id="events" selected="true">
                 <ul class="list">
-                  <li ng-repeat="x in events track by $index"><a href="#details" ng-click="getDetails($index)">{{x.name}}</a></li>
+                  <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{x.name}}</a></li>
                 </ul>
             </div>
 
@@ -41,8 +37,6 @@
                     <li>Paikka: <span style="float:right">{{ event.place }}</span></li>
                 </ul>
             </div> -->
-
-        </div>
 
     </div>
     <script>
