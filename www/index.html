@@ -21,24 +21,28 @@
 
 <body>
     <div class="view" id="mainView">
-        <div ng-app="af" ng-controller="EventController as ev">
-        <div id="debug"></div>
-            <div class="panel" title="All Events" id="events" selected="true">
-                <ul class="list">
-                  <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{x.name}}</a></li>
-                </ul>
+        <header><h1>Tapahtumat</h1></header>
+        <div class="pages">
+
+            <div ng-app="af" ng-controller="EventController as ev">
+
+                <div class="panel" title="All Events" id="events" data-tab="tab1" data-footer="none">
+                    <ul class="list">
+                      <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{x.name}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="panel" title="Event Details" id="details" >
+                    <br>
+                    <ul class="list inset">
+                        <li>Nimi: <span style="float:right">{{ ev.event.name }}</span></li>
+                        <li>Aika: <span style="float:right">{{ ev.event.time }}</span></li>
+                        <li>Paikka: <span style="float:right">{{ ev.event.place }}</span></li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- <div class="panel" title="Product Details" id="details" >
-                <br>
-                <ul class="list inset">
-                    <li>Nimi: <span style="float:right">{{ event.name }}
-                    <li>Aika: <span style="float:right">{{ event.time }}</span></li>
-                    <li>Paikka: <span style="float:right">{{ event.place }}</span></li>
-                </ul>
-            </div> -->
-
     </div>
+</div>
     <script>
         $(function() {
             FastClick.attach(document.body);

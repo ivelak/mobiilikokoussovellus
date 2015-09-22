@@ -36,15 +36,13 @@ function onAppReady() {
 }
 document.addEventListener("app.Ready", onAppReady, false);
 
-var test = "hei toimiiks tää";
-
 var app = angular.module('af', []);
 
 app.controller('EventController', function($scope, $http) {
     var ev = this;
     ev.firstName= "John";
     ev.lastName= "Doe";
-    $http.get("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html").success(function(res){
+    $http.get("file:///C:\\Users\\VoxWave\\git\\mobiilikokoussovellus\\resources\\test.html").success(function(res){
                  ev.events = res.events;
     });
 
