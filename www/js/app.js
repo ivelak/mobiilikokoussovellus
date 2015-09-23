@@ -42,8 +42,8 @@ app.controller('EventController', function($scope, $http) {
     var ev = this;
     ev.firstName= "John";
     ev.lastName= "Doe";
-    $http.get("file:///C:\\Users\\VoxWave\\git\\mobiilikokoussovellus\\resources\\test.html").success(function(res){
-                 ev.events = res.events;
+    $http.get("http://localhost:8000/api/dev/events").success(function(res){
+                 ev.events = res;
     });
 
     ev.getDetails = function(index) {
