@@ -34,7 +34,37 @@ function onAppReady() {
         navigator.splashscreen.hide() ;
     }
 }
-document.addEventListener("app.Ready", onAppReady, false) ;
+document.addEventListener("app.Ready", onAppReady, false);
+
+var app = angular.module('af', []);
+
+app.controller('EventController', function($scope, $http) {
+    var ev = this;
+    ev.firstName= "John";
+    ev.lastName= "Doe";
+    $http.get("http://localhost:8000/api/dev/events").success(function(res){
+                 ev.events = res;
+    });
+
+    ev.getDetails = function(index) {
+        ev.event = ev.events[index];
+    }
+});
+
+// function EventController($scope) {
+//     $scope.events = [];
+//
+//     $.getJSON("file:///home/voxwave/git/mobiilikokoussovellus/resources/test.html" , function(res) {
+//         res.events.forEach(function(value) {
+//             $scope.events.push(value);
+//         });
+//     });
+//
+//     $scope.getDetails = function(index){
+//         $scope.event = $scope.events[index];
+//     };
+// }
+
 // document.addEventListener("deviceready", onAppReady, false) ;
 // document.addEventListener("onload", onAppReady, false) ;
 
