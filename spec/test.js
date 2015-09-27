@@ -11,7 +11,7 @@ describe('EventController', function() {
         it('sets ev.event to the the object at that index', function() {
             var $scope = {};
             var controller = $controller('EventController', { $scope: $scope});
-            $scope.events = {[
+            $scope.events = [
                 {
                     "name": "testi1",
                     "time": "123",
@@ -22,7 +22,7 @@ describe('EventController', function() {
                     "time": "132",
                     "place": "kallio"
                 }
-            ]};
+            ];
 
             $scope.getDetails(0);
             expect($scope.event.name).toEqual('testi1');
@@ -34,7 +34,5 @@ describe('EventController', function() {
             expect($scope.event.time).toEqual('132');
             expect($scope.event.place).toEqual('kallio');
             });
-        });
-    }
-
-}));
+        };
+});

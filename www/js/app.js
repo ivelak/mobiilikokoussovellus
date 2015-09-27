@@ -38,7 +38,7 @@ document.addEventListener("app.Ready", onAppReady, false);
 
 var app = angular.module('af', []);
 
-app.controller('EventController', function($scope, $http) {
+app.controller('EventController', function EventController($scope, $http) {
     var ev = this;
     ev.firstName= "John";
     ev.lastName= "Doe";
