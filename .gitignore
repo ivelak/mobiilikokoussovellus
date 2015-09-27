@@ -11,3 +11,5 @@
 !/*.png
 !/package.json
 !/resources
+!/.travis.yml
+!/spec
