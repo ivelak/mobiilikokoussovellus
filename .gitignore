@@ -13,3 +13,4 @@
 !/resources
 !/.travis.yml
 !/spec
+!/gulpfile.js
