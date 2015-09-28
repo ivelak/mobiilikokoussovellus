@@ -7,7 +7,7 @@ describe('EventController', function() {
         $controller = _$controller_;
     }));
 
-    describe('$scope.getDetails'), function() {
+    describe('$scope.getDetails', function() {
         it('sets ev.event to the the object at that index', function() {
             var $scope = {};
             var $controller = $controller('EventController', { $scope: $scope});
@@ -25,14 +25,14 @@ describe('EventController', function() {
             ];
 
             $scope.getDetails(0);
-            expect(ev.event.name).toEqual('testi1');
-            expect(ev.event.time).toEqual('123');
-            expect(ev.event.place).toEqual('mettä');
+            expect($scope.event.name).toEqual('testi1');
+            expect($scope.event.time).toEqual('123');
+            expect($scope.event.place).toEqual('mettä');
 
             $scope.getDetails(1);
-            expect(ev.event.name).toEqual('testi2');
-            expect(ev.event.time).toEqual('132');
-            expect(ev.event.place).toEqual('kallio');
+            expect($scope.event.name).toEqual('testi2');
+            expect($scope.event.time).toEqual('132');
+            expect($scope.event.place).toEqual('kallio');
             });
-        };
+        });
 });
