@@ -1,6 +1,10 @@
 var gulp = require('gulp');
-var jasmine = require('gulp-jasmine');
+var jasmineBrowser = require('gulp-jasmine-browser');
 
-gulp.task('default', function () {
-    return gulp.src('spec/appSpec.js').pipe(jasmine());
+gulp.task('default', ['jasmine-phantom']);
+
+gulp.task('jasmine-phantom', function() {
+  return gulp.src(['www/js/app.js', 'spec/*Spec.js'])
+    .pipe(jasmineBrowser.specRunner({console: true}))
+    .pipe(jasmineBrowser.headless());
 });

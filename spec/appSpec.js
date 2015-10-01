@@ -1,3 +1,4 @@
+require('angular');
 require('angular-mocks');
 describe('EventController test', function() {
     beforeEach(angular.mock.module('af'));
