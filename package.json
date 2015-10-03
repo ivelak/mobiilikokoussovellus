@@ -7,15 +7,18 @@
     "url": "git+https://github.com/partio-scout/mobiilikokoussovellus.git"
   },
   "devDependencies": {
+    "angular-mocks": "^1.4.7",
     "appframework": "https://github.com/01org/appframework",
     "fastclick": ">= 1.0.6 ",
     "gulp": "^3.9.0",
     "gulp-jasmine": "^2.1.0",
+    "gulp-karma": "0.0.4",
     "jasmine-core": "^2.3.4",
     "jquery": ">= 2.1.4 ",
     "karma": "^0.13.10",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
+    "karma-spec-reporter": "0.0.20",
     "phantomjs": "^1.9.18"
   },
   "dependencies": {

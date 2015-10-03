@@ -1,10 +1,16 @@
 var gulp = require('gulp');
-var jasmineBrowser = require('gulp-jasmine-browser');
+var karma = require('gulp-karma');
 
-gulp.task('default', ['jasmine-phantom']);
+gulp.task('default', ['test']);
 
-gulp.task('jasmine-phantom', function() {
-  return gulp.src(['www/js/app.js', 'spec/*Spec.js'])
-    .pipe(jasmineBrowser.specRunner({console: true}))
-    .pipe(jasmineBrowser.headless());
+gulp.task('test', function() {
+    return gulp.src('./foobar')
+    .pipe(karma({
+        configFile: 'karma.conf.js',
+        action: 'run'
+    }))
+    .on('error', function(err) {
+        console.log(err);
+        this.emit('end');
+    });
 });
