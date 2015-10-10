@@ -1,18 +1,13 @@
-var angular = require('angular.js')
 describe('EventController test', function() {
-    beforeEach(angular.mock.module('af'));
+    beforeEach(module('af'));
 
     var ctrl, scope, httpMock;
 
     beforeEach(inject(function($controller, $rootScope, $httpBackend) {
         httpMock = $httpBackend;
-
         scope = $rootScope.$new();
         httpMock.when('GET', 'http://kokous-backend.herokuapp.com/api/dev/events').respond('[{"name":"testi1","time":"123","place":"mettä"},{"name":"testi2","time":"132","place":"kallio"}]');
-        ctrl = $controller;
-        ctrl(EventController, {
-            $scope: scope
-        });
+        ctrl = $controller('EventController', {$scope: scope});
 
     }));
 
@@ -20,14 +15,14 @@ describe('EventController test', function() {
             httpMock.expectGET('http://kokous-backend.herokuapp.com/api/dev/events');
             httpMock.flush();
 
-            scope.getDetails(0);
-            expect($scope.event.name).toEqual('testi1');
-            expect($scope.event.time).toEqual('123');
-            expect($scope.event.place).toEqual('mettä');
+            ctrl.getDetails(0);
+            expect(ctrl.event.name).toEqual('testi1');
+            expect(ctrl.event.time).toEqual('123');
+            expect(ctrl.event.place).toEqual('mettä');
 
-            scope.getDetails(1);
-            expect($scope.event.name).toEqual('testi2');
-            expect($scope.event.time).toEqual('132');
-            expect($scope.event.place).toEqual('kallio');
+            ctrl.getDetails(1);
+            expect(ctrl.event.name).toEqual('testi2');
+            expect(ctrl.event.time).toEqual('132');
+            expect(ctrl.event.place).toEqual('kallio');
             });
 });

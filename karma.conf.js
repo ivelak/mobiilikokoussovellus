@@ -14,10 +14,11 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [,
-      'www/js/app.js',
+    files: [
+        'js/jquery-2.1.4.js',
       'www/js/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'www/js/eventcontroller.js',
       'spec/app.spec.js'
     ],
 
