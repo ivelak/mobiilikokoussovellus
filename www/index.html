@@ -41,17 +41,36 @@
 
                 <div class="panel" title="All Events" id="events" data-tab="tab1" data-footer="none">
                     <ul class="list">
-                      <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{x.name}}</a></li>
+                      <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                     </ul>
                 </div>
 
                 <div class="panel" title="Event Details" id="details" >
                     <br>
                     <ul class="list inset">
-                        <li>Nimi: <span style="float:right">{{ ev.event.name }}</span></li>
-                        <li>Aika: <span style="float:right">{{ ev.event.time.date }}</span></li>
+                        <li>Nimi: <span style="float:right">{{ ev.event.event.name }}</span></li>
+                        <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event) }}</span></li>
                         <li>Paikka: <span style="float:right">{{ ev.event.place }}</span></li>
-                        <li>Kuvaus: <span style="float:right">{{ ev.event.description}}</span></li>
+                        <li>Kuvaus: <span style="float:right">{{ ev.event.event.description}}</span></li>
+                        
+                        <li> Aktiviteetit:
+                            <ul class="list inset">
+                                <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)">{{a.name}}</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+                <div class="panel" title="Activity Details" id="activityDetails">
+                    <ul class="list">
+                        <li>Nimi: <span style="float:right">{{ ev.activity.title }}</span></li>
+                        <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.tags.ryhmakoko[0].name }}</span></li>
+                        <li>Paikka: <span style="float:right">{{ ev.activity.tags.paikka[0].name }}</span></li>
+                        <li>Taitoalueet: 
+                            <ul>
+                                <li ng-repeat="(tag, values) in ev.activity.tags">{{ tag }}<span style="float:right">{{ ev.getValueNames(values) }}</span></li>
+                            </ul>
                     </ul>
                 </div>
             </div>
