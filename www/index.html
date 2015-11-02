@@ -67,7 +67,7 @@
                         <li>Nimi: <span style="float:right">{{ ev.activity.title }}</span></li>
                         <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.tags.ryhmakoko[0].name }}</span></li>
                         <li>Paikka: <span style="float:right">{{ ev.activity.tags.paikka[0].name }}</span></li>
-                        <li>Taitoalueet: 
+                        <li>
                             <ul>
                                 <li ng-repeat="(tag, values) in ev.activity.tags">{{ tag }}<span style="float:right">{{ ev.getValueNames(values) }}</span></li>
                             </ul>
