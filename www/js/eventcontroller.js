@@ -31,12 +31,6 @@ app.controller('EventController', function EventController($scope, $http) {
            ev.activity=res; 
         });
     }
-    ev.getValueNames=function(object){
-        var values="";
-        for (i in object) {
-            values+=i[0].name;
-        }
-        return values;
-    }
+    
  
 });
