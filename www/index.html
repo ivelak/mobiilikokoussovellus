@@ -39,13 +39,13 @@
 
             <div ng-app="af" ng-controller="EventController as ev">
 
-                <div class="panel" title="All Events" id="events" data-tab="tab1" data-footer="none">
+                <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
                     <ul class="list">
                       <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                     </ul>
                 </div>
 
-                <div class="panel" title="Event Details" id="details" >
+                <div class="panel" title="Tapahtuman tiedot" id="details" >
                     <br>
                     <ul class="list inset">
                         <li>Nimi: <span style="float:right">{{ ev.event.event.name }}</span></li>
@@ -62,17 +62,19 @@
                     
                     
                 </div>
-                <div class="panel" title="Activity Details" id="activityDetails">
+                <div>
+                <div class="panel" title="Yksityiskohdat" id="activityDetails">
                     <ul class="list">
-                        <li>Nimi: <span style="float:right">{{ ev.activity.title }}</span></li>
-                        <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.tags.ryhmakoko[0].name }}</span></li>
-                        <li>Paikka: <span style="float:right">{{ ev.activity.tags.paikka[0].name }}</span></li>
-                        <li>
-                            <ul>
-                                <li ng-repeat="(tag, values) in ev.activity.tags">{{ tag }}<span style="float:right">{{ ev.getValueNames(values) }}</span></li>
-                            </ul>
+                        <li><h2>{{ev.activity.title }}</h2></li>             
+                        <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.ryhmakoko }}</span></li>
+                        <li>Paikka: <span style="float:right">{{ ev.activity.paikka }}</span></li>
+                        <li>Pakollisuus: <span style="float:right">{{ ev.activity.pakollisuus }}</span></li>
+                        <li>Suorituksen kesto: <span style="float:right">{{ ev.activity.suoritus_kesto }}</span></li>
+                        <li>Kuvaus: <br><br><span>{{ ev.activity.content }}</span></li>
+                        
                     </ul>
                 </div>
+                    </div>
             </div>
     </div>
 </div>

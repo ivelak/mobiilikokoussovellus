@@ -224,6 +224,7 @@ nav.active {
   min-height: 100%;
 }
 h2 {
+  text-align: center;
   display: block;
   height: 34px;
   font-weight: bold;
