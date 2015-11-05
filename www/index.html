@@ -47,8 +47,8 @@
 
                 <div class="panel" title="Tapahtuman tiedot" id="details" >
                     <br>
-                    <ul class="list inset">
-                        <li>Nimi: <span style="float:right">{{ ev.event.event.name }}</span></li>
+                    <h2>{{ ev.event.event.name }}</h2>
+                    <ul class="list inset">                      
                         <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event) }}</span></li>
                         <li>Paikka: <span style="float:right">{{ ev.event.place }}</span></li>
                         <li>Kuvaus: <span style="float:right">{{ ev.event.event.description}}</span></li>
@@ -64,8 +64,9 @@
                 </div>
                 <div>
                 <div class="panel" title="Yksityiskohdat" id="activityDetails">
-                    <ul class="list">
-                        <li><h2>{{ev.activity.title }}</h2></li>             
+                    <br>
+                    <h2>{{ev.activity.title }}</h2>
+                    <ul class="list inset">           
                         <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.ryhmakoko }}</span></li>
                         <li>Paikka: <span style="float:right">{{ ev.activity.paikka }}</span></li>
                         <li>Pakollisuus: <span style="float:right">{{ ev.activity.pakollisuus }}</span></li>
