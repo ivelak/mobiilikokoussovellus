@@ -2,8 +2,6 @@ var app = angular.module('af', []);
 
 app.controller('EventController', function EventController($scope, $http) {
     var ev = this;
-    ev.firstName= "John";
-    ev.lastName= "Doe";
     $http.get("http://localhost:8000/api/dev/events").success(function(res){
                  ev.events = res;
     });
