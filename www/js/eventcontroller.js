@@ -2,7 +2,7 @@ var app = angular.module('af', []);
 
 app.controller('EventController', function EventController($scope, $http) {
     var ev = this;
-    $http.get("http://localhost:8000/api/dev/events").success(function(res){
+    $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/events").success(function(res){
                  ev.events = res;
     });
 
@@ -25,7 +25,7 @@ app.controller('EventController', function EventController($scope, $http) {
     }
     ev.getActivity=function(index) {
         var activityInfo = ev.event.activities[index];
-        $http.get("http://localhost:8000/api/dev/activities/"+activityInfo.id).success(function(res){
+        $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/activities/"+activityInfo.id).success(function(res){
            ev.activity=res; 
         });
     }
