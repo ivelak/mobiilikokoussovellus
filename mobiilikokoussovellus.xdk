@@ -5,11 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://appcenter.html5tools-software.intel.com/api/v2.0/redirect/projectrenderers/release-2015-ww32/jsapp/templates-blank-cordova-project-lite/sample.zip",
       "projectGuid": "a62cd64a-3309-40e2-9b14-1f0e6b4a0984",
-<<<<<<< HEAD
-      "lastModifiedDate": 1447676419307,
-=======
-      "lastModifiedDate": 1447537956912,
->>>>>>> origin/master
+      "lastModifiedDate": 1447682258221,
       "creationDate": 1441882802613
     },
     "XDK-app-designer": "false",
@@ -55,9 +51,6 @@
         "checksum": "fb21842c",
         "gitref": "",
         "description": "Cordova Splashscreen Plugin",
-<<<<<<< HEAD
-        "cordovaVersion": ">=3.0.0"
-=======
         "cordovaVersion": ">=3.1.0"
       },
       {
@@ -78,7 +71,6 @@
         "description": "Cordova InAppBrowser Plugin",
         "data": {},
         "dependedBy": []
->>>>>>> origin/master
       },
       {
         "id": "cordova-plugin-x-socialsharing",
