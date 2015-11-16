@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
     <div class="view" id="loginView">
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages">
@@ -44,6 +45,35 @@
                       <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                     </ul>
                 </div>
+              <div class="panel grid" data-title="Badges" id="toinen">
+                <div class="grid grid-photo">
+                <li><div class="grid-photo-box"><a href="#item1"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item2"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item3"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item4"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item5"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item6"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item7"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item8"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item9"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item10"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item11"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item12"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item13"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item14"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item15"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item16"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item17"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item18"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item19"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item20"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item21"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item22"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item23"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#item24"><img src="images/upotato.png" /></a></div></li>
+                
+        </div>
+                  </div>
 
                 <div class="panel" title="Tapahtuman tiedot" id="details" >
                     <br>
@@ -62,7 +92,7 @@
                     
                     
                 </div>
-                <div>
+                
                 <div class="panel" title="Yksityiskohdat" id="activityDetails">
                     <br>
                     <h2>{{ev.activity.title }}</h2>
@@ -75,10 +105,14 @@
                         
                     </ul>
                 </div>
-                    </div>
             </div>
     </div>
+
+        <footer>
+            <a href="#toinen" class="icon home"></a>
+        </footer>
 </div>
+    </div>
     <script>
         $(function() {
             FastClick.attach(document.body);
