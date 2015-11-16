@@ -45,9 +45,11 @@
                       <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                     </ul>
                 </div>
-              <div class="panel grid" data-title="Badges" id="toinen">
+                
+                
+              <div class="panel grid" data-title="Badges" id="badges">
                 <div class="grid grid-photo">
-                <li><div class="grid-photo-box"><a href="#item1"><img src="images/upotato.png" /></a></div></li>
+                <li><div class="grid-photo-box"><a href="#badge"><img src="images/upotato.png" /></a></div></li>
                 <li><div class="grid-photo-box"><a href="#item2"><img src="images/upotato.png" /></a></div></li>
                 <li><div class="grid-photo-box"><a href="#item3"><img src="images/upotato.png" /></a></div></li>
                 <li><div class="grid-photo-box"><a href="#item4"><img src="images/upotato.png" /></a></div></li>
@@ -74,6 +76,9 @@
                 
         </div>
                   </div>
+                <div class="panel" title="Merkki" id="badge">
+<button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
+                </div>
 
                 <div class="panel" title="Tapahtuman tiedot" id="details" >
                     <br>
@@ -109,7 +114,7 @@
     </div>
 
         <footer>
-            <a href="#toinen" class="icon home"></a>
+            <a href="#badges" class="icon home"></a>
         </footer>
 </div>
     </div>
