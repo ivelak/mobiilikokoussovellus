@@ -10,9 +10,12 @@ app.controller('EventController', function EventController($scope, $http) {
         
     }
     ev.getUserActivities = function() {
-$http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/userActivities").success(function(res)      {
-                 ev.userActivities = res;
-    });
+        $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/activities").success(function(res) {
+                    ev.userActivities = res;
+        });
+    }
+    ev.getBadge = function(index) {
+        ev.badge = ev.userActivities[index];
     }
     ev.getDateTime = function(occ) {
         var time=new Date(occ.time.date);

@@ -39,9 +39,7 @@ document.addEventListener("app.Ready", onAppReady, false);
 function partioLogin() {
    // window.open('https://kokous-backend-dev.elasticbeanstalk.com/saml2/login', '_blank', '');
     var ref = window.open('http://kokousbackendenv-env.elasticbeanstalk.com/saml2/login', '_blank', '');
-    ref.addEventListener('loadstop', function(){
-     $.afui.popup(event.url);   
-    });
+  
 }
 
 function socialShare() {
