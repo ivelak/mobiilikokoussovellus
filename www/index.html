@@ -30,6 +30,7 @@
             <div class="panel" title="login screen" id="login">
                 <button onclick="partioLogin()">kirjaudu</button>
                 <a href="#events">kirjaudu</a>
+                <button onclick="window.plugins.socialsharing.shareViaTwitter('Message via Twitter')">message via Twitter</button>
             </div>
         </div>
     </div>
@@ -59,6 +60,11 @@
             <div class="panel" data-title="Merkin tiedot" id="badgedetails">
                 <div>
                     {{ ev.badge.id }}
+                <br>
+                <h2>{{ev.badge.title }}</h2>
+                <ul class="list inset">           
+                    <li>Kuvaus: <br><br><span>{{ ev.badge.content }}</span></li>
+                </ul>
                 </div>
             </div>
             
