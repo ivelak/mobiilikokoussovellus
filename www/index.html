@@ -86,7 +86,7 @@
                     <ul class="list inset">                      
                         <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event)}}</span></li>
                         <li>Paikka: <span style="float:right">{{ ev.event.place}}</span></li>
-                        <li>Kuvaus: <span style="float:right">{{ ev.event.event.description}}</span></li>
+                        <li>Kuvaus: <br><br><span>{{ ev.event.event.description}}</span></li>
 
                         <li> Aktiviteetit:
                             <ul class="list inset">
@@ -99,21 +99,42 @@
                 </div>
 
                 <div class="panel" title="Lisää suoritteita" id="activityPerformances">
+                    <form action="">
+                        <br>
+                        <h2> Suoritusten lisääminen ryhmäläisille </h2> 
 
-                    <br>
-                    <h2> kukkuu!!! </h2>  
-                    <label for="selectedActivity">Valitse aktiviteetti: </label><br>
+                        <label for="selectedActivity">Valitse aktiviteetti: </label><br>
 
-                    <select ng-model="selectedActivity" ng-options="a.name for a in ev.event.activities track by $index">
+                        <select ng-model="selectedActivity" ng-options="a.name for a in ev.event.activities track by $index">
 
 
-                        <!-- <option ng-options="a.name for a in ev.event.activities track by $index"></option>-->
-                    </select>
-                    <ul class="list inset">
-                        
-                        <li ng-repeat="m in ev.users track by $index">{{m.lastname}}</li>
-                    </ul>
+                            <!-- <option ng-options="a.name for a in ev.event.activities track by $index"></option>-->
 
+
+                            <!--<span ng-repeat="user in ev.users track by $index">
+                                <label for="{{user.id}}">
+                                    <input type="checkbox" ng-model="" name="group" id="{{user.id}}" />
+                                    {{user.firstname + " "user.lastname}} <br/>
+                                </label>
+                            </span>-->
+
+                            <!--<li ng-repeat="user in ev.users track by $index">
+    
+                                <input type="checkbox" value="{{user.id}}" name="{{user.lastname}}" id="{{user.id}}" />{{user.firstname + " " + user.lastname}} 
+    
+                            </li>-->
+                        </select>
+
+
+                        <div class="input-group">
+
+                            <span ng-repeat="user in ev.users track by $index">
+                                <input type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">  <label for="{{user.id}}"> {{user.firstname + " " + user.lastname}}</label>
+                            </span>
+                        </div>
+
+                        <input type="submit" class="button" value="nappi" style="float:left">
+                    </form>
 
 
                 </div>

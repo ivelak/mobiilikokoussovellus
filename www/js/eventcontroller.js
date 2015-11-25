@@ -3,12 +3,17 @@ var app = angular.module('af', []);
 app.controller('EventController', function EventController($scope, $http) {
     var ev = this;
     var url="http://localhost:8000/api/dev/";
+    // var url="http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/";
     
-    $http.get("http://localhost:8000/api/dev/events").success(function(res){
+    $http.get(url+"events").success(function(res){
                  ev.events = res;
     //    $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/events").success(function(res){
     //             ev.events = res;
     });
+    
+    ev.selection = {
+        
+    }
 
     ev.getDetails = function(index) {
         ev.event = ev.events[index];
@@ -19,7 +24,7 @@ app.controller('EventController', function EventController($scope, $http) {
         
         var grid = ev.event.event.group.id;
         console.log(ev.events);
-        $http.get("http://localhost:8000/api/dev/group/"+grid).success(function(res){
+        $http.get(url+"group/"+grid).success(function(res){
             ev.users=res.users;
         });
        
@@ -38,8 +43,9 @@ app.controller('EventController', function EventController($scope, $http) {
         return string1+" "+string2;
     }
     ev.getActivity=function(index) {
+        console.log("getAct "+index);
         var activityInfo = ev.event.activities[index];
-        $http.get("http://localhost:8000/api/dev/activities/"+activityInfo.id).success(function(res){
+        $http.get(url+"activities/"+activityInfo.id).success(function(res){
            ev.activity=res; 
         //    $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/activities/"+activityInfo.id).success(function(res){
         //   ev.activity=res; 
