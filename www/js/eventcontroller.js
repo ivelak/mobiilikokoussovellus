@@ -15,7 +15,10 @@ app.controller('EventController', function EventController($scope, $http) {
         });
     }
     ev.getBadge = function(index) {
-        ev.badge = ev.userActivities[index];
+        var activityInfo = ev.userActivities[index];
+        $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/activities/"+activityInfo.id).success(function(res){
+           ev.badge=res; 
+        });
     }
     ev.getDateTime = function(occ) {
         var time=new Date(occ.time.date);
