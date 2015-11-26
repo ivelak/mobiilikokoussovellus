@@ -11,8 +11,8 @@ app.controller('EventController', function EventController($scope, $http) {
         //             ev.events = res;
     });
 
-    
-    
+
+
     ev.postFormValues = function (event) {
         console.log($("form").serializeArray());
         event.preventDefault();
@@ -26,7 +26,7 @@ app.controller('EventController', function EventController($scope, $http) {
     ev.getUsers = function () {
 
         var grid = ev.event.event.group.id;
-        console.log(ev.events);
+
         $http.get(url + "group/" + grid).success(function (res) {
             ev.users = res.users;
         });
@@ -60,3 +60,6 @@ app.controller('EventController', function EventController($scope, $http) {
 
 
 });
+
+
+    
