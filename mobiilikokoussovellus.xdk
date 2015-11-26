@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://appcenter.html5tools-software.intel.com/api/v2.0/redirect/projectrenderers/release-2015-ww32/jsapp/templates-blank-cordova-project-lite/sample.zip",
       "projectGuid": "a62cd64a-3309-40e2-9b14-1f0e6b4a0984",
-      "lastModifiedDate": 1448458672262,
+      "lastModifiedDate": 1448553604496,
       "creationDate": 1441882802613
     },
     "XDK-app-designer": "false",
@@ -75,14 +75,15 @@
       {
         "id": "cordova-plugin-x-socialsharing",
         "name": "SocialSharing",
-        "version": "5.0.0",
-        "originType": "cordova.io",
-        "origin": "cordova-plugin-x-socialsharing",
+        "version": "5.0.7",
+        "originType": "repo",
+        "origin": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin",
         "gitref": "",
+        "subdir": ".",
         "paramvals": {},
         "sourceLocation": "plugins/cordova-plugin-x-socialsharing",
         "selectedState": "Included",
-        "checksum": "67cdc828",
+        "checksum": "a2ab4ca5",
         "dependsOn": [],
         "topLevel": true,
         "cordovaVersion": ">=3.0.0",
@@ -92,7 +93,7 @@
             "android.permission.WRITE_EXTERNAL_STORAGE"
           ]
         },
-        "description": "\n    Share text, images (and other files), or a link via the native sharing widget of your device.\n    Android is fully supported, as well as iOS 6 and up. WP8 has somewhat limited support.\n  ",
+        "description": "\r\n    Share text, images (and other files), or a link via the native sharing widget of your device.\r\n    Android is fully supported, as well as iOS 6 and up. WP8 has somewhat limited support.\r\n  ",
         "data": {},
         "dependedBy": []
       }
