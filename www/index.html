@@ -163,6 +163,15 @@
             $(function() {
             FastClick.attach(document.body);
             });
+            
+            $("form").submit(function(event) {
+                var values = $(this).serializeArray();
+                for (var i in values){
+                    console.log(i.value);
+                }
+                event.preventDefault();
+            
+            });
 </script>
 </body>
 
