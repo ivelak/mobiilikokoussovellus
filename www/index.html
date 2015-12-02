@@ -69,7 +69,11 @@
             <div class="grid grid-photo">
 
 
-                <li ng-repeat="x in ev.userActivities track by $index"><div class="grid-photo-box"><a href="#badgedetails" ng-click="ev.getBadge($index)"><img src="images/upotato.png" /></a></div></li>
+                <li ng-repeat="x in ev.userActivities track by $index"><div class="grid"><a href="#badgedetails" ng-click="ev.getBadge($index)"> 
+                    <figure>
+  <img src="{{x.kuva}}" alt={{x.title}}>
+  <figcaption>{{x.title}}></figcaption>
+</figure></a></div></li>
 
             </div>
         </div>
