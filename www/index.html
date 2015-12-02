@@ -99,13 +99,13 @@
                 </div>
 
                 <div class="panel" title="Lisää suoritteita" id="activityPerformances">
-                    <form action="">
+                    <form action="" ng-submit="ev.submit()">
                         <br>
                         <h2> Suoritusten lisääminen ryhmäläisille </h2> 
 
                         <label for="selectedActivity">Valitse aktiviteetti: </label><br>
 
-                        <select ng-model="selectedActivity" ng-options="a.name for a in ev.event.activities track by $index">
+                        <select ng-model="ev.form.Activity" ng-options="a.name for a in ev.event.activities track by $index">
 
 
                             <!-- <option ng-options="a.name for a in ev.event.activities track by $index"></option>-->
@@ -129,11 +129,12 @@
                         <div class="input-group">
 
                             <span ng-repeat="user in ev.users track by $index">
-                                <input type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">  <label for="{{user.id}}"> {{user.firstname + " " + user.lastname}}</label>
+                                <input ng-model="ev.form.User[user.id]" type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">  <label for="{{user.id}}"> {{user.firstname + " " + user.lastname}}</label>
                             </span>
                         </div>
+                        
 
-                        <input type="submit" class="button" value="nappi" style="float:left">
+                        <input type="submit" class="button" value="Merkitse suoritetuksi" style="float:left">
                     </form>
 
 
@@ -162,15 +163,6 @@
 <script>
             $(function() {
             FastClick.attach(document.body);
-            });
-            
-            $("form").submit(function(event) {
-                var values = $(this).serializeArray();
-                for (var i in values){
-                    console.log(i.value);
-                }
-                event.preventDefault();
-            
             });
 </script>
 </body>
