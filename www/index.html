@@ -32,23 +32,6 @@
                 <button onclick="partioLogin()">kirjaudu</button>
                 <a href="#events">kirjaudu</a>
 
-                <ul class="rrssb-buttons clearfix">
-
-      <button onclick="window.plugins.socialsharing.share('Message only')">message only</button>
-<button onclick="window.plugins.socialsharing.share('Message and subject', 'The subject')">message and subject</button>
-<button onclick="window.plugins.socialsharing.share(null, null, null, 'http://www.x-services.nl')">link only</button>
-<button onclick="window.plugins.socialsharing.share('Message and link', null, null, 'http://www.x-services.nl')">message and link</button>
-<button onclick="window.plugins.socialsharing.share(null, null, 'https://www.google.nl/images/srpr/logo4w.png', null)">image only</button>
-// Beware: passing a base64 file as 'data:' is not supported on Android 2.x: https://code.google.com/p/android/issues/detail?id=7901#c43
-// Hint: when sharing a base64 encoded file on Android you can set the filename by passing it as the subject (second param)
-<button onclick="window.plugins.socialsharing.share(null, 'Android filename', 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null)">base64 image only</button>
-// Hint: you can share multiple files by using an array as thirds param: ['file 1','file 2', ..], but beware of this Android Kitkat Facebook issue: [#164]
-<button onclick="window.plugins.socialsharing.share('Message and image', null, 'https://www.google.nl/images/srpr/logo4w.png', null)">message and image</button>
-<button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button>
-<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
-  </li>
-</ul>
-
             </div>
         </div>
     </div>
@@ -69,11 +52,14 @@
             <div class="grid grid-photo">
 
 
-                <li ng-repeat="x in ev.userActivities track by $index"><div class="grid"><a href="#badgedetails" ng-click="ev.getBadge($index)"> 
+                <li ng-repeat="x in ev.userActivities track by $index">                                                       <div class="grid grid-photo">
+                        <a href="#badgedetails" ng-click="ev.getBadge($index)"> 
                     <figure>
-  <img src="{{x.kuva}}" alt={{x.title}}>
-  <figcaption>{{x.title}}></figcaption>
-</figure></a></div></li>
+                        <img src={{x.logo}} alt={{x.name}}>
+                    </figure>
+                        </a>
+                    </div>
+                </li>
 
             </div>
         </div>
@@ -83,9 +69,13 @@
                     {{ ev.badge.id }}
                 <br>
                 <h2>{{ev.badge.title }}</h2>
+                        <img src={{ev.badge.logo}} alt="Ei kuvaa" position="relative" style="margin-left: 40%" max-width="20%" max-height="20">
                 <ul class="list inset">           
-                    <li>Kuvaus: <br><br><span>{{ ev.badge.content }}</span></li>
-                </ul>
+                    <li>Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
+                    
+                    </li>
+<button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
+                    <button onclick="window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">Jaa Instagrammissa</button>
                 </div>
             </div>
 
