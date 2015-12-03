@@ -86,7 +86,14 @@
                 <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event) }}</span></li>
                 <li>Paikka: <span style="float:right">{{ ev.event.place }}</span></li>
                 <li>Kuvaus: <span style="float:right">{{ ev.event.event.description}}</span></li>
-
+                <li>
+                     Kommentit:
+                    <ul>
+                    <li ng-repeat="x in ev.event.comments track by $index"> <p> {{x.comment}}                    
+                    </p>
+                    </li>
+                    </ul>
+                    </li>
                 <li> Aktiviteetit:
                     <ul class="list inset">
                         <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)">{{a.name}}</a></li>
@@ -104,7 +111,14 @@
                     <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.ryhmakoko }}</span></li>
                     <li>Paikka: <span style="float:right">{{ ev.activity.paikka }}</span></li>
                     <li>Pakollisuus: <span style="float:right">{{ ev.activity.pakollisuus }}</span></li>
-                    <li>Suorituksen kesto: <span style="float:right">{{ ev.activity.suoritus_kesto }}                         </span>
+                    <li>Suorituksen kesto: <span style="float:right">{{ ev.activity.suoritus_kesto }}</li> 
+                    <li>
+                        Kommentit:
+                        <ul>
+                    <li ng-repeat="x in ev.activities.comments track by $index"> <p> {{x.comment}}                    
+                    </p>
+                    </li>
+                            </ul>
                     </li>
                     <li>Kuvaus: <br><br><span>{{ ev.activity.content }}</span></li>
                 </ul>
