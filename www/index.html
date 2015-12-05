@@ -82,6 +82,7 @@
                     </li>
 <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
                     <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})" >Jaa Instagrammissa</button>
+                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.canShareVia('instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', null, null, null, function(e){alert(e)}, function(e){alert(e)})">is Instagram available?</button>
                 </div>
             </div>
 
