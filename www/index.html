@@ -29,7 +29,7 @@
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages">
             <div class="panel" title="login screen" id="login">
-                <button onclick="partioLogin()">kirjaudu</button>
+                <button onclick="partioLogin()" >kirjaudu</button>
                 <a href="#events">kirjaudu</a>
 
             </div>
@@ -52,11 +52,15 @@
             <div class="grid grid-photo">
 
 
-                <li ng-repeat="x in ev.userActivities track by $index">                                                       <div class="grid grid-photo">
-                        <a href="#badgedetails" ng-click="ev.getBadge($index)"> 
-                    <figure>
-                        <img src={{x.logo}} alt={{x.name}}>
-                    </figure>
+                <li ng-repeat="x in ev.userActivities track by $index">
+                    <div class="grid grid-photo">
+                        <a href="#badgedetails" ng-click="ev.getBadge($index)">    
+                            <figure>
+                                <img src={{x.logo}} alt="http://4vector.com/i/free-vector-suomen-partiolaiset-finlands-scouter-ry-0_052277_suomen-partiolaiset-finlands-scouter-ry-0.png">
+                                <figcaption>
+                                    {{x.name}}
+                                </figcaption>
+                            </figure>
                         </a>
                     </div>
                 </li>
@@ -64,18 +68,20 @@
             </div>
         </div>
 
-            <div class="panel" data-title="Merkin tiedot" id="badgedetails">
-                <div>
+            <div class="panel" data-title="Merkin tiedot" id="badgedetails" style="background-color:mediumblue;">
+                <div >
                     {{ ev.badge.id }}
                 <br>
                 <h2>{{ev.badge.title }}</h2>
-                        <img src={{ev.badge.logo}} alt="Ei kuvaa" position="relative" style="margin-left: 40%" max-width="20%" max-height="20">
+                    <figure style="color: white; background-color:mediumblue;">
+                        <img src="{{ev.badge.logo}}" alt="Ei kuvaa" position="relative" style="margin-left: 40%" max-width="20%" max-height="20">
+                    </figure>
                 <ul class="list inset">           
                     <li>Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
                     
                     </li>
 <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
-                    <button onclick="window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">Jaa Instagrammissa</button>
+                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})" >Jaa Instagrammissa</button>
                 </div>
             </div>
 
