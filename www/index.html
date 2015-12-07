@@ -13,7 +13,6 @@
     <script scr="js/fastclick.js"></script>
     <script src="js/app.js"></script>
     <script src="js/eventcontroller.js"></script>
-    <script src="js/rrssb.min.js"></script>
 
     </script>>
     <!-- <link href="css/af.ui.css" rel="stylesheet" /> -->
@@ -25,7 +24,7 @@
 
 <body>
 
-    <div class="view" id="loginView">
+    <div class="view" id="loginView" background="images/upotato.png">
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages">
             <div class="panel" title="login screen" id="login">
@@ -42,13 +41,13 @@
 
 
 
-            <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
+            <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none" background="images/upotato.png">
                 <ul class="list">
                     <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                 </ul>
             </div>
 
-        <div class="panel" data-title="Merkit" id="badges">
+        <div class="panel" data-title="Merkit" id="badges" background="images/upotato.png">
             <div class="grid grid-photo">
 
 
@@ -56,7 +55,7 @@
                     <div class="grid grid-photo">
                         <a href="#badgedetails" ng-click="ev.getBadge($index)">    
                             <figure>
-                                <img src={{x.logo}} alt="http://4vector.com/i/free-vector-suomen-partiolaiset-finlands-scouter-ry-0_052277_suomen-partiolaiset-finlands-scouter-ry-0.png">
+                                <img src={{x.logo}} alt="">
                                 <figcaption>
                                     {{x.name}}
                                 </figcaption>
@@ -74,15 +73,15 @@
                 <br>
                 <h2>{{ev.badge.title }}</h2>
                     <figure style="color: white; background-color:mediumblue;">
-                        <img src="{{ev.badge.logo}}" alt="Ei kuvaa" position="relative" style="margin-left: 40%" max-width="20%" max-height="20">
+                        <img src="{{ev.badge.logo}}" alt="Ei kuvaa" position="relative" style="margin-left: 40% max-width=20% max-height=20%">
                     </figure>
                 <ul class="list inset">           
-                    <li>Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
+                    <li background="{{ev.badge.main_image}}">Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
                     
                     </li>
 <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
                     <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})" >Jaa Instagrammissa</button>
-                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.canShareVia('instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', null, null, null, function(e){alert(e)}, function(e){alert(e)})">is Instagram available?</button>
+                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.canShareVia('instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function(e){alert(e)}, function(e){alert(e)})">is Instagram available?</button>
                 </div>
             </div>
 
@@ -122,10 +121,10 @@
                     <li>
                         Kommentit:
                         <ul>
-                    <li ng-repeat="x in ev.activities.comments track by $index"> <p> {{x.comment}}                    
-                    </p>
-                    </li>
-                            </ul>
+                        <li ng-repeat="x in ev.activities.comments track by $index"> <p> {{x.comment}}                    
+                        </p>
+                        </li>
+                        </ul>
                     </li>
                     <li>Kuvaus: <br><br><span>{{ ev.activity.content }}</span></li>
                 </ul>
