@@ -29,8 +29,9 @@
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages" bacground: #253764;>
             <div class="panel" title="Suomen Partio" id="login" style="background-color:#ffffff;">
-                <button onclick="partioLogin()" >kirjaudu</button>
-                <a href="#events">kirjaudu</a>
+                <button class="button" style="color: white; background-color: blue" onclick="partioLogin()" >Kirjaudu partioID:llä</button> <br><font size="5">Tai</font>  <br>
+                <a href="#events">Tarkastele sovellusta (demo)</a>
+                <br><br><br>
                     <figure>
                         <img  class="center" src="images/partion_logo_web_gif.gif" width="300">
                     </figure>
@@ -118,7 +119,6 @@
                 </div>
                         
                 <div class="panel" title="Merkki" id="badge">
-                    <button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
                 </div>
 
                 <div class="panel" title="Lisää suoritteita" id="activityPerformances">
