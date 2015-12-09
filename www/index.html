@@ -29,13 +29,13 @@
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages" bacground: #253764;>
             <div class="panel" title="Suomen Partio" id="login" style="background-color:#ffffff;">
-                <h1>Kalenterisovellus</h1><br><br>
+             <center>    <h1>Kalenterisovellus</h1><br><br></center>  
                     <figure>
                         <img  class="center" src="images/partion_logo_web_gif.gif">
                     </figure> <br><br>
                                     
-                <button class="button" style="color: white; background-color: blue" onclick="partioLogin()" >Kirjaudu partion ID:llä</button> <br><font size="5">Tai</font>  <br>
-                <a href="#events">Tarkastele sovellusta (demo)</a>
+            <center>  <button class="button" style="color: white; background-color: blue" onclick="partioLogin()" >Kirjaudu partion ID:llä</button> <br><font size="5">Tai</font>  <br>
+                <a href="#events">Tarkastele sovellusta (demo)</a></center>  
                 <br><br><br><br>
                     <figure>
                         <img src="images/adventtikalenteri2015-banneri.jpg">
@@ -88,9 +88,12 @@
                 <ul class="list inset"  style="background-color:#253764;">           
                     <li> <font size="1.5" color="#ffffff">Kuvaus: </font><br><br><span><font size="1.5" color="#ffffff">{{ ev.badge.content }}</font></span>
                     
-                    </li><li style="background-color:#253764;">
-<button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
                     </li>
+                    <center>  
+                        <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">
+                            Jaa
+                        </button>
+                    </center>
                 </div>
             </div>
 
