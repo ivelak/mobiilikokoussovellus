@@ -6,9 +6,10 @@ app.controller('EventController', function EventController($scope, $http) {
      var url="http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/";
     ev.form = {};
     
-    ev.submit = function() {   
-        console.log(ev.form);
-        $.afui.show()
+    ev.submit = function(event) {
+        console.log(angular.toJson(ev.form, true));
+        $http.post(url +  "events", angular.toJson(ev.form));
+        $.afui.loadContent("#details",false,false,"none");
     };
 
     $http.get(url + "events").success(function (res) {
@@ -21,6 +22,7 @@ app.controller('EventController', function EventController($scope, $http) {
 
     ev.postFormValues = function (event) {
         console.log(ev.form.Activity);
+        $.afui.loadContent("#details",false,false,"none");
     };
 
     ev.getDetails = function (index) {

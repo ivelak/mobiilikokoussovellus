@@ -99,42 +99,26 @@
                 </div>
 
                 <div class="panel" title="Lisää suoritteita" id="activityPerformances">
-                    <form action="" ng-submit="ev.submit()">
+                    <form ng-submit="ev.submit()">
                         <br>
                         <h2> Suoritusten lisääminen ryhmäläisille </h2> 
 
                         <label for="selectedActivity">Valitse aktiviteetti: </label><br>
 
-                        <select ng-model="ev.form.Activity" ng-options="a.name for a in ev.event.activities track by $index">
-
-
-                            <!-- <option ng-options="a.name for a in ev.event.activities track by $index"></option>-->
-
-
-                            <!--<span ng-repeat="user in ev.users track by $index">
-                                <label for="{{user.id}}">
-                                    <input type="checkbox" ng-model="" name="group" id="{{user.id}}" />
-                                    {{user.firstname + " "user.lastname}} <br/>
-                                </label>
-                            </span>-->
-
-                            <!--<li ng-repeat="user in ev.users track by $index">
-    
-                                <input type="checkbox" value="{{user.id}}" name="{{user.lastname}}" id="{{user.id}}" />{{user.firstname + " " + user.lastname}} 
-    
-                            </li>-->
+                        <select ng-model="ev.form.activity">
+                            <option ng-repeat="a in ev.event.activities" value="{{a.id}}">{{a.name}}</option>
                         </select>
 
 
                         <div class="input-group">
 
                             <span ng-repeat="user in ev.users track by $index">
-                                <input ng-model="ev.form.User[user.id]" type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">  <label for="{{user.id}}"> {{user.firstname + " " + user.lastname}}</label>
+                                <input ng-model="ev.form.user[user.id]" type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">  <label for="{{user.id}}"> {{user.firstname + " " + user.lastname}}</label>
                             </span>
                         </div>
                         
-
-                        <input type="submit" class="button" value="Merkitse suoritetuksi" style="float:left">
+                            <input type="submit" class="button" value="Merkitse suoritetuksi" style="float:left">
+<!--                        <button class="button" onclick="ev.submit()" value="Merkitse suoritetuksi" style="float:left">-->
                     </form>
 
 
