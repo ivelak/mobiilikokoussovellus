@@ -24,78 +24,97 @@
 
 <body>
 
-    <div class="view" id="loginView">
+    <div class="view" id="loginView" background="images/upotato.png">
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages">
             <div class="panel" title="login screen" id="login">
-                <button onclick="partioLogin()">kirjaudu</button>
+                <button onclick="partioLogin()" >kirjaudu</button>
                 <a href="#events">kirjaudu</a>
+
             </div>
         </div>
     </div>
-
+    
+<div ng-app="af" ng-controller="EventController as ev">
     <div class="view" id="mainView">
         <header><h1>Tapahtumat</h1></header>
         <div class="pages">
 
-            <div ng-app="af" ng-controller="EventController as ev">
+            <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none" background="images/upotato.png">
+                <ul class="list">
+                    <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
+                </ul>
+            </div>
+
+        <div class="panel" data-title="Merkit" id="badges" background="images/upotato.png">
+            <div class="grid grid-photo">
+
+
+                <li ng-repeat="x in ev.userActivities track by $index">
+                    <div class="grid grid-photo">
+                        <a href="#badgedetails" ng-click="ev.getBadge($index)">    
+                            <figure>
+                                <img src={{x.logo}} alt="">
+                                <figcaption>
+                                    {{x.name}}
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+
+            </div>
+        </div>
+
+            <div class="panel" data-title="Merkin tiedot" id="badgedetails" style="background-color:mediumblue;">
+                <div >
+                    {{ ev.badge.id }}
+                <br>
+                <h2>{{ev.badge.title }}</h2>
+                    <figure style="color: white; background-color:mediumblue;">
+                        <img src="{{ev.badge.logo}}" alt="Ei kuvaa" position="relative" style="margin-left: 40% max-width=20% max-height=20%">
+                    </figure>
+                <ul class="list inset">           
+                    <li background="{{ev.badge.main_image}}">Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
+                    
+                    </li>
+<button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
+                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})" >Jaa Instagrammissa</button>
+                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.canShareVia('instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function(e){alert(e)}, function(e){alert(e)})">is Instagram available?</button>
+                </div>
+            </div>
+
+        <div class="panel" title="Tapahtuman tiedot" id="details" >
+            <br>
+            <h2>{{ ev.event.event.name }}</h2>
+            <ul class="list inset">
+                <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event) }}</span></li>
+                <li>Paikka: <span style="float:right">{{ ev.event.place }}</span></li>
+                <li>Kuvaus: <span style="float:right">{{ ev.event.event.description}}</span></li>
+                <li> Aktiviteetit:
+                            <ul class="list inset">
+                                <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)">{{a.name}}</a></li>
+                            </ul>
+                    <h3><a href="#activityPerformances" ng-click="ev.getUsers()">Lisää suoritteita</a></h3>
+                        </li>
+                
+                <li>
+                     Kommentit:
+                    <ul>
+                    <li ng-repeat="x in ev.event.comments track by $index"> <p> {{x.comment}}                    
+                    </p>
+                    </li>
+                    </ul>
+        </div>
 
                 <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
                     <ul class="list">
                         <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                     </ul>
                 </div>
-
-
-                <div class="panel grid" data-title="Badges" id="badges">
-                    <div class="grid grid-photo">
-                        <li><div class="grid-photo-box"><a href="#badge"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item2"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item3"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item4"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item5"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item6"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item7"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item8"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item9"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item10"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item11"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item12"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item13"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item14"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item15"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item16"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item17"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item18"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item19"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item20"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item21"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item22"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item23"><img src="images/upotato.png" /></a></div></li>
-                        <li><div class="grid-photo-box"><a href="#item24"><img src="images/upotato.png" /></a></div></li>
-
-                    </div>
-                </div>
+                        
                 <div class="panel" title="Merkki" id="badge">
                     <button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
-                </div>
-
-                <div class="panel" title="Tapahtuman tiedot" id="details" >
-                    <br>
-                    <h2>{{ ev.event.event.name}}</h2>
-                    <ul class="list inset">                      
-                        <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event)}}</span></li>
-                        <li>Paikka: <span style="float:right">{{ ev.event.place}}</span></li>
-                        <li>Kuvaus: <br><br><span>{{ ev.event.event.description}}</span></li>
-
-                        <li> Aktiviteetit:
-                            <ul class="list inset">
-                                <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)">{{a.name}}</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <h3><a href="#activityPerformances" ng-click="ev.getUsers()">Lisää suoritteita</a></h3>    
                 </div>
 
                 <div class="panel" title="Lisää suoritteita" id="activityPerformances">
@@ -124,24 +143,32 @@
 
                 </div>
 
-                <div class="panel" title="Yksityiskohdat" id="activityDetails">
-                    <br>
-                    <h2>{{ev.activity.title}}</h2>
-                    <ul class="list inset">           
-                        <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.ryhmakoko}}</span></li>
-                        <li>Paikka: <span style="float:right">{{ ev.activity.paikka}}</span></li>
-                        <li>Pakollisuus: <span style="float:right">{{ ev.activity.pakollisuus}}</span></li>
-                        <li>Suorituksen kesto: <span style="float:right">{{ ev.activity.suoritus_kesto}}</span></li>
-                        <li>Kuvaus: <br><br><span>{{ ev.activity.content}}</span></li>
-
-                    </ul>
+            <div class="panel" title="Yksityiskohdat" id="activityDetails">
+                <br>
+                <h2>{{ev.activity.title }}</h2>
+                <ul class="list inset">
+                    <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.ryhmakoko }}</span></li>
+                    <li>Paikka: <span style="float:right">{{ ev.activity.paikka }}</span></li>
+                    <li>Pakollisuus: <span style="float:right">{{ ev.activity.pakollisuus }}</span></li>
+                    <li>Suorituksen kesto: <span style="float:right">{{ ev.activity.suoritus_kesto }}</li> 
+                    <li>
+                        Kommentit:
+                        <ul>
+                        <li ng-repeat="x in ev.activities.comments track by $index"> <p> {{x.comment}}                    
+                        </p>
+                        </li>
+                        </ul>
+                    </li>
+                    <li>Kuvaus: <br><br><span>{{ ev.activity.content }}</span></li>
+                </ul>
                 </div>
-            </div>
-        </div>
 
-        <!-- <footer>
-             <a href="#badges" class="icon home"></a>
-         </footer> -->
+     </div>
+            <footer>
+                <a href="#badges" class="icon home" ng-click="ev.getUserActivities()"></a>
+            </footer>
+
+        </div>
     </div>
 </div>
 <script>

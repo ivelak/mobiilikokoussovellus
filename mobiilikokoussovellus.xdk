@@ -93,7 +93,7 @@
             "android.permission.WRITE_EXTERNAL_STORAGE"
           ]
         },
-        "description": "\n    Share text, images (and other files), or a link via the native sharing widget of your device.\n    Android is fully supported, as well as iOS 6 and up. WP8 has somewhat limited support.\n  ",
+        "description": "\r\n    Share text, images (and other files), or a link via the native sharing widget of your device.\r\n    Android is fully supported, as well as iOS 6 and up. WP8 has somewhat limited support.\r\n  ",
         "data": {},
         "dependedBy": []
       }

@@ -18,17 +18,21 @@ app.controller('EventController', function EventController($scope, $http) {
         //             ev.events = res;
     });
 
-
-
-    ev.postFormValues = function (event) {
-        console.log(ev.form.Activity);
-        $.afui.loadContent("#details",false,false,"none");
-    };
-
-    ev.getDetails = function (index) {
+    ev.getDetails = function(index) {
         ev.event = ev.events[index];
-
-    };
+        
+    }
+    ev.getUserActivities = function() {
+        $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/activities").success(function(res) {
+                    ev.userActivities = res;
+        });
+    }
+    ev.getBadge = function(index) {
+        var activityInfo = ev.userActivities[index];
+        $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/activities/"+activityInfo.id).success(function(res){
+           ev.badge=res; 
+        });
+    }
 
     ev.getUsers = function () {
 
@@ -45,7 +49,6 @@ app.controller('EventController', function EventController($scope, $http) {
 
         var timedate = "";
         timedate = date.toLocaleDateString() + " " + time.toLocaleTimeString();        //.substr(time.length-9, time.length-5);
-
         return timedate;
     };
 
