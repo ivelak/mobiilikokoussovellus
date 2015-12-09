@@ -24,13 +24,16 @@
 
 <body>
 
-    <div class="view" id="loginView" background="images/upotato.png">
+    <div class="view" id="loginView">
+
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages">
-            <div class="panel" title="login screen" id="login">
+            <div class="panel" title="Suomen Partio" id="login">
                 <button onclick="partioLogin()" >kirjaudu</button>
                 <a href="#events">kirjaudu</a>
-
+                    <figure>
+                        <img src="images/partion_logo_web_gif.gif" width="300">
+                    </figure>
             </div>
         </div>
     </div>
@@ -38,15 +41,15 @@
 <div ng-app="af" ng-controller="EventController as ev">
     <div class="view" id="mainView">
         <header><h1>Tapahtumat</h1></header>
-        <div class="pages">
+        <div class="pages" style="background-color:#253764;">
 
-            <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none" background="images/upotato.png">
+            <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
                 <ul class="list">
                     <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                 </ul>
             </div>
 
-        <div class="panel" data-title="Merkit" id="badges" background="images/upotato.png">
+        <div class="panel" data-title="Merkit" id="badges">
             <div class="grid grid-photo">
 
 
@@ -66,16 +69,16 @@
             </div>
         </div>
 
-            <div class="panel" data-title="Merkin tiedot" id="badgedetails" style="background-color:mediumblue;">
+            <div class="panel" data-title="Merkin tiedot" id="badgedetails" style="background-color:#253764;">
                 <div >
                     {{ ev.badge.id }}
                 <br>
                 <h2>{{ev.badge.title }}</h2>
-                    <figure style="color: white; background-color:mediumblue;">
-                        <img src="{{ev.badge.logo}}" alt="Ei kuvaa" position="relative" style="margin-left: 40% max-width=20% max-height=20%">
+                    <figure style="color: white; background-color:#253764;">
+                        <img src="{{ev.badge.logo}}" alt="Ei kuvaa" width="283">
                     </figure>
                 <ul class="list inset">           
-                    <li background="{{ev.badge.main_image}}">Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
+                    <li>Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
                     
                     </li>
 <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
@@ -154,7 +157,7 @@
                     <li>
                         Kommentit:
                         <ul>
-                        <li ng-repeat="x in ev.activities.comments track by $index"> <p> {{x.comment}}                    
+                        <li ng-repeat="x in ev.activity.comments track by $index"> <p> {{x.comment}}                     
                         </p>
                         </li>
                         </ul>
@@ -165,8 +168,7 @@
 
      </div>
             <footer>
-                <a href="#events" class="icon calendar">Tapahtumat</a>
-                <a href="#badges" class="icon star" ng-click="ev.getUserActivities()">Merkit</a>
+                <a href="#badges" class="icon home" ng-click="ev.getUserActivities()"></a>
             </footer>
 
         </div>

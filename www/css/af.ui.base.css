@@ -63,7 +63,7 @@ p {
   z-index: 250;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  height: 44px;
+  height: 64px;
   left: 0;
   right: 0;
 }
@@ -71,7 +71,7 @@ p {
   position: absolute;
   width: 45%;
   z-index: 1;
-  height: 44px;
+  height: 64px;
   font-size: 18px;
   font-weight: bold;
   left: 27.5%;
@@ -1363,7 +1363,7 @@ body #af_actionsheet a {
   background: #f9f9f9;
   color: #fff;
   display: block;
-  line-height: 44px;
+  line-height: 64px;
   left: 25px;
   text-overflow: ellipsis;
   font-size: 14px;
@@ -1372,7 +1372,7 @@ body #af_actionsheet a {
   background-color: transparent;
   border: none;
   border-color: transparent;
-  height: 44px;
+  height: 64px;
   top: 0;
   border-radius: 0;
   box-shadow: none;
@@ -1402,7 +1402,7 @@ body #af_actionsheet a {
 }
 .backButton::before {
   z-index: -1;
-  font-size: 22px;
+  font-size: 42px;
   position: absolute;
   top: -2px;
   left: -30px;
@@ -2240,7 +2240,7 @@ label {
   width: 33%;
   font-weight: normal;
   font-size: 14px;
-  color: inherit;
+  color: #28a9e1;
   text-align: right;
   padding: 15px 18px;
 }
