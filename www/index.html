@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Mobiilikokoussovellus</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script src="cordova.js"></script>
-    <script src="js/angular.js"></script>
-    <script src="js/jquery-2.1.4.js"></script>
-    <script src="js/appframework.ui.js"></script>
-    <script src="xdk/init-dev.js"></script>
-    <script scr="js/fastclick.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/eventcontroller.js"></script>
+    <head>
+        <title>Mobiilikokoussovellus</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <script src="cordova.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/jquery-2.1.4.js"></script>
+        <script src="js/appframework.ui.js"></script>
+        <script src="xdk/init-dev.js"></script>
+        <script scr="js/fastclick.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/eventcontroller.js"></script>
 
     </script>>
     <!-- <link href="css/af.ui.css" rel="stylesheet" /> -->
@@ -34,12 +34,11 @@
             </div>
         </div>
     </div>
+    
 <div ng-app="af" ng-controller="EventController as ev">
     <div class="view" id="mainView">
         <header><h1>Tapahtumat</h1></header>
         <div class="pages">
-
-
 
             <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none" background="images/upotato.png">
                 <ul class="list">
@@ -92,6 +91,13 @@
                 <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event) }}</span></li>
                 <li>Paikka: <span style="float:right">{{ ev.event.place }}</span></li>
                 <li>Kuvaus: <span style="float:right">{{ ev.event.event.description}}</span></li>
+                <li> Aktiviteetit:
+                            <ul class="list inset">
+                                <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)">{{a.name}}</a></li>
+                            </ul>
+                    <h3><a href="#activityPerformances" ng-click="ev.getUsers()">Lisää suoritteita</a></h3>
+                        </li>
+                
                 <li>
                      Kommentit:
                     <ul>
@@ -99,16 +105,43 @@
                     </p>
                     </li>
                     </ul>
-                    </li>
-                <li> Aktiviteetit:
-                    <ul class="list inset">
-                        <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)">{{a.name}}</a></li>
+        </div>
+
+                <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
+                    <ul class="list">
+                        <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
                     </ul>
-                 </li>
-            </ul>
+                </div>
+                        
+                <div class="panel" title="Merkki" id="badge">
+                    <button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
+                </div>
+
+                <div class="panel" title="Lisää suoritteita" id="activityPerformances">
+                    <form ng-submit="ev.submit()">
+                        <br>
+                        <h2> Suoritusten lisääminen ryhmäläisille </h2> 
+
+                        <label for="selectedActivity">Valitse aktiviteetti: </label><br>
+
+                        <select ng-model="ev.form.activity">
+                            <option ng-repeat="a in ev.event.activities" value="{{a.id}}">{{a.name}}</option>
+                        </select>
 
 
-         </div>
+                        <div class="input-group">
+
+                            <span ng-repeat="user in ev.users track by $index">
+                                <input ng-model="ev.form.user[user.id]" type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">  <label for="{{user.id}}"> {{user.firstname + " " + user.lastname}}</label>
+                            </span>
+                        </div>
+                        
+                            <input type="submit" class="button" value="Merkitse suoritetuksi" style="float:left">
+<!--                        <button class="button" onclick="ev.submit()" value="Merkitse suoritetuksi" style="float:left">-->
+                    </form>
+
+
+                </div>
 
             <div class="panel" title="Yksityiskohdat" id="activityDetails">
                 <br>
@@ -137,11 +170,12 @@
 
         </div>
     </div>
-    <script>
-        $(function() {
+</div>
+<script>
+            $(function() {
             FastClick.attach(document.body);
-        });
-    </script>
+            });
+</script>
 </body>
 
 </html>
