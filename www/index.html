@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
+    <head bacground: #253764;>
         <title>Mobiilikokoussovellus</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -24,15 +24,15 @@
 
 <body>
 
-    <div class="view" id="loginView">
+    <div class="view" id="loginView" bacground: #253764;>
 
         <header><h1>Kirjautuminen</h1></header>
-        <div class="pages">
-            <div class="panel" title="Suomen Partio" id="login">
+        <div class="pages" bacground: #253764;>
+            <div class="panel" title="Suomen Partio" id="login" : #253764;>
                 <button onclick="partioLogin()" >kirjaudu</button>
                 <a href="#events">kirjaudu</a>
                     <figure>
-                        <img src="images/partion_logo_web_gif.gif" width="300">
+                        <img  class="center" src="images/partion_logo_web_gif.gif" width="300">
                     </figure>
             </div>
         </div>
@@ -59,7 +59,9 @@
                             <figure>
                                 <img src={{x.logo}} alt="">
                                 <figcaption>
-                                    {{x.name}}
+                                    <font size="1.5" color="#ffffff">
+                                        {{x.name}}
+                                    </font>
                                 </figcaption>
                             </figure>
                         </a>
@@ -75,15 +77,14 @@
                 <br>
                 <h2>{{ev.badge.title }}</h2>
                     <figure style="color: white; background-color:#253764;">
-                        <img src="{{ev.badge.logo}}" alt="Ei kuvaa" width="283">
+                        <img  class="center" src="{{ev.badge.logo}}" alt="Ei kuvaa">
                     </figure>
-                <ul class="list inset">           
-                    <li>Kuvaus: <br><br><span>{{ ev.badge.content }}</span>
+                <ul class="list inset"  style="background-color:#253764;">           
+                    <li> <font size="1.5" color="#ffffff">Kuvaus: </font><br><br><span><font size="1.5" color="#ffffff">{{ ev.badge.content }}</font></span>
                     
-                    </li>
+                    </li><li style="background-color:#253764;">
 <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">Jaa</button>
-                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})" >Jaa Instagrammissa</button>
-                    <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.canShareVia('instagram', 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}', function(e){alert(e)}, function(e){alert(e)})">is Instagram available?</button>
+                    </li>
                 </div>
             </div>
 

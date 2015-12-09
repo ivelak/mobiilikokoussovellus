@@ -38,6 +38,10 @@ textarea {
   -moz-user-select: text;
 }
 img {
+  margin: auto;
+  align-content: center;
+  width: 60%;
+  padding: 10px;
   border: none;
 }
 p {
@@ -2680,3 +2684,20 @@ header .menuButton:after {
 #lockScreen.round input[type="password"]:-ms-input-placeholder {
   color: white;
 }
+.ios7 .view {
+  background: #253764;
+  color: #253764;
+  top: 20px;
+  border: none;
+  border-bottom: 1px solid #c8c7cc;
+}
+.center {
+    margin: auto;
+    width: 60%;
+    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: none;
+    padding: 10px;
+}
+
