@@ -3,7 +3,7 @@ var app = angular.module('af', []);
 app.controller('EventController', function EventController($scope, $http) {
     var ev = this;
    // var url = "http://localhost:8000/api/dev/";
-     var url="http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/";
+    var url="http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/";
     ev.form = {};
     
     ev.submit = function(event) {
@@ -20,7 +20,6 @@ app.controller('EventController', function EventController($scope, $http) {
 
     ev.getDetails = function(index) {
         ev.event = ev.events[index];
-        
     }
     ev.getUserActivities = function() {
         $http.get("http://kokousbackendenv-env.elasticbeanstalk.com/api/dev/activities").success(function(res) {

@@ -28,7 +28,7 @@
 
         <header><h1>Kirjautuminen</h1></header>
         <div class="pages" bacground: #253764;>
-            <div class="panel" title="Suomen Partio" id="login" : #253764;>
+            <div class="panel" title="Suomen Partio" id="login" style="background-color:#ffffff;">
                 <button onclick="partioLogin()" >kirjaudu</button>
                 <a href="#events">kirjaudu</a>
                     <figure>
@@ -41,11 +41,11 @@
 <div ng-app="af" ng-controller="EventController as ev">
     <div class="view" id="mainView">
         <header><h1>Tapahtumat</h1></header>
-        <div class="pages" style="background-color:#253764;">
+        <div class="pages">
 
             <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
                 <ul class="list">
-                    <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
+                    <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)"><font color="#ffffff">{{ev.concat(x.event.name, ev.getDateTime(x))}}</font></a></li>
                 </ul>
             </div>
 
@@ -92,21 +92,21 @@
             <br>
             <h2>{{ ev.event.event.name }}</h2>
             <ul class="list inset">
-                <li>Aika: <span style="float:right">{{ ev.getDateTime(ev.event) }}</span></li>
-                <li>Paikka: <span style="float:right">{{ ev.event.place }}</span></li>
-                <li>Kuvaus: <span style="float:right">{{ ev.event.event.description}}</span></li>
-                <li> Aktiviteetit:
-                            <ul class="list inset">
-                                <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)">{{a.name}}</a></li>
+                <li><font color="#ffffff">Aika: </font><span style="float:right"><font color="#ffffff">{{ ev.getDateTime(ev.event) }}</font></span></li>
+                <li><font color="#ffffff">Paikka: </font><span style="float:right"><font color="#ffffff">{{ ev.event.place }}</font></span></li>
+                <li><font color="#ffffff">Kuvaus: </font><span style="float:right"><font color="#ffffff">{{ ev.event.event.description}}</font></span></li>
+                <li><font color="#ffffff">Aktiviteetit:</font>
+                            <ul>
+                            <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)"><font color="#ffffff">{{a.name}}      </font></a></li>
                             </ul>
-                    <h3><a href="#activityPerformances" ng-click="ev.getUsers()">Lisää suoritteita</a></h3>
+                    <h3><a href="#activityPerformances" ng-click="ev.getUsers()"><font color="#ffffff"Lisää suoritteita</a></h3>
                         </li>
                 
-                <li>
+                    <li>
                      Kommentit:
                     <ul>
-                    <li ng-repeat="x in ev.event.comments track by $index"> <p> {{x.comment}}                    
-                    </p>
+                    <li ng-repeat="x in ev.event.comments track by $index"><font color="#ffffff"> {{x.comment}} </font>                   
+                    
                     </li>
                     </ul>
         </div>
