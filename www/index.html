@@ -26,17 +26,35 @@
 
     <div class="view" id="loginView">
 
-        <header><h1>Kirjautuminen</h1></header>
+        <header>
+            <h1>
+            Kirjautuminen
+            </h1>
+        </header>
         <div class="pages" bacground: #253764;>
             <div class="panel" title="Suomen Partio" id="login" style="background-color:#ffffff;">
-             <center>    <h1>Kalenterisovellus</h1><br><br></center>  
+             <center>    
+                 <h1>
+                 Kalenterisovellus
+                 </h1><br><br>
                     <figure>
-                        <img  class="center" src="images/partion_logo_web_gif.gif">
-                    </figure> <br><br>
+                        <img src="images/partion_logo_web_gif.gif">
+                    </figure>
+                </center><br><br>
                                     
-            <center>  <button class="button" style="color: white; background-color: blue" onclick="partioLogin()" >Kirjaudu partion ID:llä</button> <br><font size="5">Tai</font>  <br>
-                <a href="#events">Tarkastele sovellusta (demo)</a></center>  
-                <br><br><br><br>
+            <center>  
+                <button class="button" style="color: white; background-color: blue" onclick="partioLogin()">
+                    Kirjaudu partion ID:llä
+                </button><br>
+                <font size="5">
+                Tai
+                </font>
+                <br>
+                <a href="#events">
+                    Tarkastele sovellusta (demo)
+                </a>
+            </center>  
+                <br><br><br>
                     <figure>
                         <img src="images/adventtikalenteri2015-banneri.jpg">
                     </figure>
@@ -46,48 +64,64 @@
     
 <div ng-app="af" ng-controller="EventController as ev">
     <div class="view" id="mainView">
-        <header><h1>Tapahtumat</h1></header>
+        <header>
+            <h1>
+            Tapahtumat
+            </h1>
+        </header>
         <div class="pages">
 
             <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
                 <ul class="list">
-                    <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)"><font color="#ffffff">{{ev.concat(x.event.name, ev.getDateTime(x))}}</font></a></li>
+                    <li ng-repeat="x in ev.events track by $index">
+                        <a href="#details" ng-click="ev.getDetails($index)">
+                        <font color="#ffffff">
+                        {{ev.concat(x.event.name, ev.getDateTime(x))}}
+                        </font>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
-        <div class="panel" data-title="Merkit" id="badges">
-            <div class="grid grid-photo">
-
-
-                <li ng-repeat="x in ev.userActivities track by $index">
-                    <div class="grid grid-photo">
-                        <a href="#badgedetails" ng-click="ev.getBadge($index)">    
-                            <figure>
-                                <img src={{x.logo}} alt="">
-                                <figcaption>
+            <div class="panel" data-title="Merkit" id="badges">
+                <div class="grid grid-photo">
+                    <li ng-repeat="x in ev.userActivities track by $index">
+                        <div class="grid grid-photo">
+                            <a href="#badgedetails" ng-click="ev.getBadge($index)">    
+                                <figure>
+                                    <img src={{x.logo}} alt="">
+                                    <figcaption>
                                     <font size="1.5" color="#ffffff">
                                         {{x.name}}
                                     </font>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                </li>
-
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    </li>
+                </div>
             </div>
-        </div>
 
             <div class="panel" data-title="Merkin tiedot" id="badgedetails" style="background-color:#253764;">
                 <div >
                     {{ ev.badge.id }}
                 <br>
-                <h2>{{ev.badge.title }}</h2>
+                <h2>
+                    {{ev.badge.title }}
+                </h2>
                     <figure style="color: white; background-color:#253764;">
                         <img  class="center" src="{{ev.badge.logo}}" alt="Ei kuvaa">
                     </figure>
                 <ul class="list inset"  style="background-color:#253764;">           
-                    <li> <font size="1.5" color="#ffffff">Kuvaus: </font><br><br><span><font size="1.5" color="#ffffff">{{ ev.badge.content }}</font></span>
-                    
+                    <li> 
+                        <font size="1.5" color="#ffffff">
+                        Kuvaus: 
+                        </font><br><br>
+                        <span>
+                        <font size="1.5" color="#ffffff">
+                        {{ ev.badge.content }}
+                        </font>
+                        </span>
                     </li>
                     <center>  
                         <button class="button" style="color: white; background-color: blue" onclick="window.plugins.socialsharing.share(null, null, null, 'http://kokousbackendenv-env.elasticbeanstalk.com/activities/{{ev.badge.id}}')">
@@ -99,95 +133,177 @@
 
         <div class="panel" title="Tapahtuman tiedot" id="details" >
             <br>
-            <h2>{{ ev.event.event.name }}</h2>
+            <h2>
+                {{ ev.event.event.name }}
+            </h2>
             <ul class="list inset">
-                <li><font color="#ffffff">Aika: </font><span style="float:right"><font color="#ffffff">{{ ev.getDateTime(ev.event) }}</font></span></li>
-                <li><font color="#ffffff">Paikka: </font><span style="float:right"><font color="#ffffff">{{ ev.event.place }}</font></span></li>
-                <li><font color="#ffffff">Kuvaus: </font><br><br><font color="#ffffff">{{ ev.event.event.description}}</font></span></li>
-                <li><font color="#ffffff">Aktiviteetit:</font>
-                            <ul>
-                            <li ng-repeat="a in ev.event.activities track by $index"><a href="#activityDetails" ng-click="ev.getActivity($index)"><font color="#ffffff">{{a.name}}      </font></a></li>
-                            </ul>
-                    <h3><a href="#activityPerformances" ng-click="ev.getUsers()"><font color="#ffffff"Lisää suoritteita</a></h3>
-                        </li>
-                
-                    <li>
-                     Kommentit:
-                    <ul>
-                    <li ng-repeat="x in ev.event.comments track by $index"><font color="#ffffff"> {{x.comment}} </font>                   
+                <li>
+                    <font color="#ffffff">
+                    Aika:
+                    </font>
+                    <span style="float:right">
+                    <font color="#ffffff">
+                    {{ ev.getDateTime(ev.event) }}
+                    </font>
+                    </span>
+                </li>
+                <li>
+                    <font color="#ffffff">
+                    Paikka:
+                    </font>
+                    <span style="float:right">
+                    <font color="#ffffff">
+                    {{ ev.event.place }}
+                    </font>
+                    </span>
+                </li>
+                <li>
+                    <font color="#ffffff">
+                        Kuvaus: 
+                    </font><br><br>
+                    <font color="#ffffff">
+                        {{ ev.event.event.description}}
+                    </font>
+                </span>
+                </li>
+                <li>
+                    <font color="#ffffff">
+                        Aktiviteetit:
+                    </font>
                     
-                    </li>
+                    <ul>
+                        <li ng-repeat="a in ev.event.activities track by $index">
+                        <a href="#activityDetails" ng-click="ev.getActivity($index)">
+                            <font color="#ffffff">
+                                {{a.name}}      
+                            </font>
+                        </a>
+                        </li>
                     </ul>
+                    <h3>
+                        <a href="#activityPerformances" ng-click="ev.getUsers()">
+                            <font color="#ffffff">
+                                Lisää suoritteita
+                            </font>
+                        </a>
+                    </h3>
+                 </li>
+                
+                <li>
+                    <font color="#ffffff"> 
+                 Kommentit:   
+                    </font> 
+                <ul>
+                <li ng-repeat="x in ev.event.comments track by $index">
+                    <font color="#ffffff">
+                        {{x.comment}}
+                    </font>                   
+                </li>
+                </ul>
         </div>
 
-                <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
-                    <ul class="list">
-                        <li ng-repeat="x in ev.events track by $index"><a href="#details" ng-click="ev.getDetails($index)">{{ev.concat(x.event.name, ev.getDateTime(x))}}</a></li>
-                    </ul>
-                </div>
+            <div class="panel" title="Tapahtumat" id="events" data-tab="tab1" data-footer="none">
+                <ul class="list">
+                <li ng-repeat="x in ev.events track by $index">
+                    <a href="#details" ng-click="ev.getDetails($index)">
+                        {{ev.concat(x.event.name, ev.getDateTime(x))}}
+                    </a>
+                </li>
+                </ul>
+            </div>
                         
-                <div class="panel" title="Merkki" id="badge">
-                </div>
-
-                <div class="panel" title="Lisää suoritteita" id="activityPerformances">
-                    <form ng-submit="ev.submit()">
-                        <br>
-                        <h2> Suoritusten lisääminen ryhmäläisille </h2> 
-
-                        <label for="selectedActivity">Valitse aktiviteetti: </label><br>
-
-                        <select ng-model="ev.form.activity">
-                            <option ng-repeat="a in ev.event.activities" value="{{a.id}}">{{a.name}}</option>
-                        </select>
-
-
-                        <div class="input-group">
-
-                            <span ng-repeat="user in ev.users track by $index">
-                                <input ng-model="ev.form.user[user.id]" type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">  <label for="{{user.id}}"> {{user.firstname + " " + user.lastname}}</label>
-                            </span>
-                        </div>
-                        
-                            <input type="submit" class="button" value="Merkitse suoritetuksi" style="float:left">
-<!--                        <button class="button" onclick="ev.submit()" value="Merkitse suoritetuksi" style="float:left">-->
-                    </form>
-
-
-                </div>
-
-            <div class="panel" title="Yksityiskohdat" id="activityDetails">
+            <div class="panel" title="Lisää suoritteita" id="activityPerformances">
+                <form ng-submit="ev.submit()">
                 <br>
-                <h2>{{ev.activity.title }}</h2>
+                    <h2>
+                        Suoritusten lisääminen ryhmäläisille
+                    </h2> 
+
+                    <label for="selectedActivity">
+                            Valitse aktiviteetti: 
+                    </label>
+                <br>
+
+                    <select ng-model="ev.form.activity">
+                        <option ng-repeat="a in ev.event.activities" value="{{a.id}}">
+                            {{a.name}}                                   
+                        </option>
+                    </select>
+
+                    <div class="input-group">
+                        <span ng-repeat="user in ev.users track by $index">
+                            <input ng-model="ev.form.user[user.id]" type="checkbox" name="usr" id="{{user.id}}" value="{{user.id}}" style="float:right">
+                            <label for="{{user.id}}">
+                                {{user.firstname + " " + user.lastname}}
+                            </label>
+                        </span>
+                    </div>
+                    <input type="submit" class="button" value="Merkitse suoritetuksi" style="float:left">
+<!--                        <button class="button" onclick="ev.submit()" value="Merkitse suoritetuksi" style="float:left">-->
+                </form>
+             </div>
+
+            <div class="panel" title="Yksityiskohdat" id="activityDetails">                    <font>                   
+
+                <br>
+                <h2>
+                    {{ev.activity.title }}
+                </h2>
                 <ul class="list inset">
-                    <li>Ryhmäkoko: <span style="float:right">{{ ev.activity.ryhmakoko }}</span></li>
-                    <li>Paikka: <span style="float:right">{{ ev.activity.paikka }}</span></li>
-                    <li>Pakollisuus: <span style="float:right">{{ ev.activity.pakollisuus }}</span></li>
-                    <li>Suorituksen kesto: <span style="float:right">{{ ev.activity.suoritus_kesto }}</li> 
+                    <font color="#ffffff">
+                    <li>Ryhmäkoko:
+                        <span style="float:right">
+                            {{ ev.activity.ryhmakoko }}
+                        </span>
+                    </li>
+                    <li>Paikka: 
+                        <span style="float:right">
+                            {{ ev.activity.paikka }}
+                        </span>
+                    </li>
+                    <li>Pakollisuus: 
+                        <span style="float:right">
+                            {{ ev.activity.pakollisuus }}
+                        </span>
+                    </li>
+                    <li>Suorituksen kesto: 
+                        <span style="float:right">
+                            {{ ev.activity.suoritus_kesto }}
+                    </li> 
                     <li>
                         Kommentit:
                         <ul>
-                        <li ng-repeat="x in ev.activity.comments track by $index"> <p> {{x.comment}}                     
-                        </p>
+                        <li ng-repeat="x in ev.activity.comments track by $index">
+                            <p> 
+                                {{x.comment}}                     
+                            </p>
                         </li>
                         </ul>
                     </li>
-                    <li>Kuvaus: <br><br><span>{{ ev.activity.content }}</span></li>
+                    <li>Kuvaus: 
+                        <br><br>
+                        <span>
+                            {{ ev.activity.content }}
+                        </span>
+                    </li>
+                    </font> 
                 </ul>
-                </div>
-
-     </div>
-            <footer>
-                               <a href="#events" class="icon calendar">Tapahtumat</a>
-                <a href="#badges" class="icon star" ng-click="ev.getUserActivities()">Merkit</a>
-            </footer>
-
+            </div>
         </div>
+        <footer>
+            <a href="#events" class="icon calendar">
+                Tapahtumat
+            </a>
+            <a href="#badges" class="icon star" ng-click="ev.getUserActivities()">
+                Merkit
+            </a>
+        </footer>
     </div>
 </div>
 <script>
-            $(function() {
-            FastClick.attach(document.body);
-            });
+    $(function() {
+    FastClick.attach(document.body);
+    });
 </script>
 </body>
 
